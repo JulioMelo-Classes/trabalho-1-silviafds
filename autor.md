@@ -1,9 +1,10 @@
 # Identificação Pessoal
 
-Preencha os dados abaixo para identificar a autoria do trabalho.
+Identificando a autoria do trabalho.
 
-- Nome: *\<insira seu nome aqui>*
-- Email: *\<insira seu email aqui>*
-- Turma: *\<insira sua turma aqui>*
+- Nome: Brenda Dantas
+- Nome: Silvia Goes Fernandes 
+- Email: brenda.dantas.018@gmail.com
+- Email: silviagfernandes1@gmail.com
+- Turma: IMD0030 - T01
 
-Repita os campos Nome e Email caso seja uma dupla
