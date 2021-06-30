@@ -9,7 +9,7 @@ using namespace std;
 
 int main(int argc, char *argv[]){
     int i = 0, x, num_jogadas, j = 0, tam = 0;
-    float v_float[5], valor_da_aposta, y;
+    float v_float[22], valor_da_aposta, y;
     stringstream ss;
     stringstream xx;
 
