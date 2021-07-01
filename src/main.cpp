@@ -20,7 +20,7 @@ int main(int argc, char *argv[]){
     
     if(argc < 2){
         recebedora = 1;
-        cout << "não tem arquivo";
+        cout << "nao tem arquivo";
     } else {
         arquivo_tst_keno.open(argv[1]);
         if(arquivo_tst_keno.is_open()){
@@ -67,7 +67,7 @@ int main(int argc, char *argv[]){
                         jj++;
                     }
 
-                    cout << "\nVetor de números do jogador: ";
+                    cout << "\nVetor de numeros do jogador: ";
                     for(i = 0; i<tam; i++){
                         cout << num_escolhidos[i] << "\t";
                     }
@@ -79,12 +79,14 @@ int main(int argc, char *argv[]){
         } 
     }   
 
+    Sorteio var1;
+
     cout << "\nValor de linhas: " << teste_valor_linhas << endl;
     if(recebedora == 1){
         cout << "\nJogo invalido!\n";
     }else{
         cout << "\nJogo correto!\n";
-        sorteando();
+        var1.sorteando();       
     }
 
     return 0;

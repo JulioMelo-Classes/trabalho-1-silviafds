@@ -12,7 +12,7 @@ using namespace std;
 
 
 //Funçao que verifica se existem numeros iguais sendo gerados.
-bool Existe(int valores[],int tam, int valor){
+bool Sorteio::Existe(int valores[],int tam, int valor){
     for(int i = 0;i<tam;i++){
         if(valores[i]==valor)
             return true;
@@ -22,7 +22,7 @@ bool Existe(int valores[],int tam, int valor){
 
 
 //Função que gera numeros aleatorios.
-void GeraAleatorios(int numeros[],int quantNumeros,int Limite){
+void Sorteio::GeraAleatorios(int numeros[],int quantNumeros,int Limite){
     srand(time(NULL)); // gera numeros com base no relogio.
 
     int v;
@@ -38,18 +38,18 @@ void GeraAleatorios(int numeros[],int quantNumeros,int Limite){
     }
 }
 
-void sorteando(){
-    int vetor_sorteado[20];//valores que foram sorteados.
-    int quantidade_num = 20;
-    int limite = 80;//do 1 até 80
-
-    for(int i=0; i<quantidade_num; i++){
-        vetor_sorteado[i] = 1 + (rand() % limite);
-    }
+int Sorteio::sorteando(){
+    //int vetor_sorteado[20];//valores que foram sorteados.
+    //int quantidade_num = 20;
+    //int limite = 80;//do 1 até 80
+    Sorteio var2;
+    var2.GeraAleatorios(vetor_sorteado, quantidade_num, limite);
     
-    /*cout <<"\n Números sorteados: ";
+    cout <<"\n Números sorteados: ";
+
+    //return vetor_sorteado[];
 
     for(int i=0; i<quantidade_num; i++){
         cout << vetor_sorteado[i] << "\t";
-    }*/
+    }
 }
