@@ -5,12 +5,13 @@
 #include <sstream>
 #include <iomanip>
 #include <vector>
+#include "Validar.h"
+#include "Sorteio.h"
 using namespace std;
 
 int main(int argc, char *argv[]){
-    int i = 0, x, num_jogadas, j = 0, tam = 0;
+    int v[5], i = 0, x, num_jogadas, j = 0, tam = 0;//tam = tamanho do vetor
     float v_float[22], valor_da_aposta, y;
-    stringstream ss;
     stringstream xx;
 
     ifstream arquivo_tst_keno;
@@ -20,7 +21,6 @@ int main(int argc, char *argv[]){
     if(arquivo_tst_keno.is_open()){
         while(getline(arquivo_tst_keno, linha)){
             cout << linha << endl;
-            ss << linha << endl;
             xx << linha << endl;
         }
     } else{
@@ -28,7 +28,6 @@ int main(int argc, char *argv[]){
     }
    
     while(xx >> y){//aplicando o stringstream
-        //cout << y*1 << endl;
         v_float[j] = y;//guardando na variavel
         j++;
         tam++;
@@ -40,23 +39,33 @@ int main(int argc, char *argv[]){
     }
     
     valor_da_aposta = v_float[0];
-    cout << "\nValor da aposta: " << valor_da_aposta << fixed << setprecision(1) << "\n";
+    cout << "\nValor da aposta: " << valor_da_aposta <<  fixed << setprecision(1) << "\n";
 
     num_jogadas = v_float[1];
     cout << "\nNúmero de jogadas: " << num_jogadas << "\n";
-    cout << "\nTamanho do vetor: " << tam << "\n";
 
     tam = tam - 2;
     int num_escolhidos[tam], jj = 2;
 
-    vector<int> v1;
-    for(int l=0; l<tam; l++){
-        v1.push_back(v_float[jj]);
+    for(int l=0; l<tam; l++){//preenchendo vetor com os números
+        num_escolhidos[l] = v_float[jj];
         jj++;
     }
+    cout << "\nVetor de números do jogador: ";
     for(i = 0; i<tam; i++){
-        cout << v1[i] << endl;
+        cout << num_escolhidos[i] << "\t";
     }
+    int recebedora;
+
+    recebedora = val(num_escolhidos, tam);
+
+    if(recebedora == 1){
+        cout << "\nJogo invalido\n";
+    }else{
+        cout << "\nJogo correto\n";
+        sorteando(tam);
+    }
+
 
     return 0;
 }
