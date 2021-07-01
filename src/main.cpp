@@ -16,20 +16,27 @@ int main(int argc, char *argv[]){
     int recebedora;
     ifstream arquivo_tst_keno;
     string linha;
+    int teste_valor_linhas = 0;
     
     if(argc < 2){
         recebedora = 1;
         cout << "não tem arquivo";
     } else {
 
+    
     arquivo_tst_keno.open(argv[1]);
     if(arquivo_tst_keno.is_open()){
         while(getline(arquivo_tst_keno, linha)){
             cout << linha << endl;
             xx << linha << endl;
+            teste_valor_linhas++;
+
+            if (teste_valor_linhas < 3 || teste_valor_linhas > 3){
+                recebedora = 1;
+            }
         }
     } else{
-        cout << "NÃO FOI POSSIVEL ABRIR O ARQUIVO\n";
+        cout << "NAO FOI POSSIVEL ABRIR O ARQUIVO\n";
     }
    
     while(xx >> y){//aplicando o stringstream
@@ -39,7 +46,7 @@ int main(int argc, char *argv[]){
     }
 
     cout << "\n==CONVERTIDOS==\n";
-    for(int i=0; i<5;i++){
+    for(int i=0; i<tam;i++){
         cout << v_float[i] << endl;
     }
     
@@ -47,7 +54,7 @@ int main(int argc, char *argv[]){
     cout << "\nValor da aposta: " << valor_da_aposta <<  fixed << setprecision(1) << "\n";
 
     num_jogadas = v_float[1];
-    cout << "\nNúmero de jogadas: " << num_jogadas << "\n";
+    cout << "\nNumero de jogadas: " << num_jogadas << "\n";
 
     tam = tam - 2;
     int num_escolhidos[tam], jj = 2;
@@ -56,7 +63,7 @@ int main(int argc, char *argv[]){
         num_escolhidos[l] = v_float[jj];
         jj++;
     }
-    cout << "\nVetor de números do jogador: ";
+    cout << "\nVetor de numeros do jogador: ";
     for(i = 0; i<tam; i++){
         cout << num_escolhidos[i] << "\t";
     }
@@ -68,11 +75,13 @@ int main(int argc, char *argv[]){
 
 
     if(recebedora == 1){
-        cout << "\nJogo invalido\n";
+        cout << "\nJogo invalido!\n";
     }else{
-        cout << "\nJogo correto\n";
+        cout << "\nJogo correto!\n";
         sorteando(tam);
     }
+
+    cout << "Valor de linhas: " << teste_valor_linhas <<endl;
 
 
     return 0;
