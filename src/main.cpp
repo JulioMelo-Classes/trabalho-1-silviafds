@@ -31,8 +31,9 @@ int main(int argc, char *argv[]){
             xx << linha << endl;
             teste_valor_linhas++;
 
-            if (teste_valor_linhas < 3 || teste_valor_linhas > 3){
+            if (teste_valor_linhas < 3 ){
                 recebedora = 1;
+                cout << "Não deu pra abrir o arquivo. Quantidade incorrenta de linhas." << endl;
             }
         }
     } else{
@@ -72,7 +73,6 @@ int main(int argc, char *argv[]){
     recebedora = val(num_escolhidos, tam);
  
     }
-
 
     if(recebedora == 1){
         cout << "\nJogo invalido!\n";

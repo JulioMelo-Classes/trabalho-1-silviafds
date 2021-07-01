@@ -27,23 +27,27 @@ int val(int num_escolhidos[], int tam){
     }
 
 
-    for(int i=0; i<tam; i++){//1º validação
+    for(int i=0; i<tam; i++){//1º validação -- numeros repetidos
         if(num_escolhidos[i] == num_escolhidos[i+1]){
-            return 1;
+            cout << "Nao sera possivel abrir o arquivo. Numeros iguais." << endl;
+            return 1;            
             break;
         }
     }
 
-    if(tam > 20){ //2º validação
+    if(tam > 20){ //2º validação -- quantidade de numeros apostados maior que 20.
+        cout << "Nao vai abrir o arquivo. Numeros demais." << endl;
         return 1;
+        
     }
 
-    for(int i=0; i<tam; i++){ //3º validação
+    /*for(int i=0; i<tam; i++){ //3º validação
         if(num_escolhidos[i] != 6){
+            cout << "I can't open this file." << endl;
             return 1;
             break;
         }
-    }
+    }*/
 
     return 0;
 }
