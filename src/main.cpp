@@ -31,7 +31,7 @@ int main(int argc, char *argv[]){
             xx << linha << endl;
             teste_valor_linhas++;
 
-            if (teste_valor_linhas < 3 ){
+            if (teste_valor_linhas < 3 ){ // Nao esta funcionando como deveria.
                 recebedora = 1;
                 cout << "Não deu pra abrir o arquivo. Quantidade incorrenta de linhas." << endl;
             }
