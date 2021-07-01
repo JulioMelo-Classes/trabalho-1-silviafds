@@ -78,14 +78,14 @@ int main(int argc, char *argv[]){
             }
         } 
     }   
+
     cout << "\nValor de linhas: " << teste_valor_linhas << endl;
     if(recebedora == 1){
         cout << "\nJogo invalido!\n";
     }else{
         cout << "\nJogo correto!\n";
-        sorteando(tam);
+        sorteando();
     }
-
 
     return 0;
     
