@@ -13,9 +13,14 @@ int main(int argc, char *argv[]){
     int v[5], i = 0, x, num_jogadas, j = 0, tam = 0;//tam = tamanho do vetor
     float v_float[22], valor_da_aposta, y;
     stringstream xx;
-
+    int recebedora;
     ifstream arquivo_tst_keno;
     string linha;
+    
+    if(argc < 2){
+        recebedora = 1;
+        cout << "não tem arquivo";
+    } else {
 
     arquivo_tst_keno.open(argv[1]);
     if(arquivo_tst_keno.is_open()){
@@ -55,9 +60,12 @@ int main(int argc, char *argv[]){
     for(i = 0; i<tam; i++){
         cout << num_escolhidos[i] << "\t";
     }
-    int recebedora;
+    
 
     recebedora = val(num_escolhidos, tam);
+ 
+    }
+
 
     if(recebedora == 1){
         cout << "\nJogo invalido\n";
