@@ -8,18 +8,26 @@
 #include "Validar.h"
 using namespace std;
 
+void insertionsort(int num_escolhidos[], int tam){//função de ordenação
+    int i, key, j;
+
+    for(i=1; i<tam; i++){
+        key = num_escolhidos[i];
+        j = i - 1;
+
+        while (j >= 0 && num_escolhidos[j] > key){
+            num_escolhidos[j+1] = num_escolhidos[j];
+            j = j - 1;
+        }
+        num_escolhidos[j+1] = key;
+    }
+}
+
 
 int val(int num_escolhidos[], int tam){
-    int aux;
-    for(int i=0; i<tam; i++){//números em ordem crescente
-        for(int j=0; j<tam;j++){
-            if(num_escolhidos[i] < num_escolhidos[j]){
-                aux = num_escolhidos[i];
-                num_escolhidos[i] = num_escolhidos[j];
-                num_escolhidos[j] = aux;
-            }
-        }
-    }
+   
+    insertionsort(num_escolhidos, tam);//chamada da funcão de ordenação
+    
     int ordenar_crescente(int num_escolhidos, int tam);
     cout << "\nOrdem crescente ";
     for(int i=0; i<tam; i++){//números em ordem crescente
@@ -27,27 +35,27 @@ int val(int num_escolhidos[], int tam){
     }
 
 
-    for(int i=0; i<tam; i++){//1º validação
+    for(int i=0; i<tam; i++){//1º validação -- numeros repetidos
         if(num_escolhidos[i] == num_escolhidos[i+1]){
-            return 1;
+            cout << "Nao sera possivel abrir o arquivo. Numeros iguais." << endl;
+            return 1;            
             break;
         }
     }
 
-    if(tam > 20){ //2º validação
+    if(tam > 20){ //2º validação -- quantidade de numeros apostados maior que 20.
+        cout << "Nao vai abrir o arquivo. Numeros demais." << endl;
         return 1;
+        
     }
-    int x = 0;
-    for(int i=0; i<tam; i++){ //3º validação
-        if(num_escolhidos[i] > 1 && num_escolhidos[i] < 80){
-            x++;
+
+    /*for(int i=0; i<tam; i++){ //3º validação
+        if(num_escolhidos[i] != 6){
+            cout << "I can't open this file." << endl;
+            return 1;
+            break;
         }
-    }
-    cout << x << endl;
-    cout << tam << endl;
-    if(x != tam){
-        return 1;
-    }
+    }*/
 
     return 0;
 }
