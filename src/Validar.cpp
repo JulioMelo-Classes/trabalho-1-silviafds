@@ -43,7 +43,7 @@ int val(int num_escolhidos[], int tam){
         }
     }
 
-    if(tam > 20){ //2º validação -- quantidade de numeros apostados maior que 20.
+    if(tam > 17){ //2º validação -- quantidade de numeros apostados maior que 20.
         cout << "Nao vai abrir o arquivo. Numeros demais." << endl;
         return 1;
         

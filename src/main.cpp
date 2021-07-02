@@ -12,7 +12,7 @@ using namespace std;
 
 int main(int argc, char *argv[]){
     int v[5], i = 0, x, num_jogadas, j = 0, tam = 0, tam1 = 0;//tam = tamanho do vetor
-    float v_float[22], valor_da_aposta, y, vetor[22];
+    float v_float[17], valor_da_aposta, y, vetor[17];
     stringstream xx;
     int recebedora;
     ifstream arquivo_tst_keno;
@@ -91,10 +91,13 @@ int main(int argc, char *argv[]){
         cout << "\nJogo correto!\n";
         num_sorteados = adm(arr);
         num_igual = comparar(num_jogador, num_sorteados);
+        size_t spot = num_jogador . size();
         size_t numero_acertos = num_igual . size();
         cout << "\n\nTam de num_igual: " << numero_acertos << endl;
+        cout << "\n\nTam de spot: " << spot << endl;
+
         int vetor_ganho;
-        vetor_ganho = calculo(valor_da_aposta, num_jogadas, numero_acertos);
+        vetor_ganho = calculo(valor_da_aposta, num_jogadas, numero_acertos, spot);
 
     }
 

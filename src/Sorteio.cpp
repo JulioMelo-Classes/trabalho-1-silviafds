@@ -10,6 +10,7 @@
 using namespace std;
 using std::vector;
 
+
 vector<int> comparar(vector<int> &num_jogador, vector<int> &num_sorteados){
     size_t tam_sorteados = num_sorteados.size();
     size_t tam_jogador = num_jogador.size();
