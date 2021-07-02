@@ -10,35 +10,43 @@
 using namespace std;
 using std::vector;
 
-int comparar(int num_escolhidos[], int tam, int num_sorteados[], int tam_num){
-    insertionsort(num_escolhidos, tam);
-    cout << "\nJogo do jogador: ";
-    for(int i=0; i<tam; i++){ //3º validação
-        cout << num_escolhidos[i] << "\t";
+vector<int> comparar(vector<int> &num_jogador, vector<int> &num_sorteados){
+    size_t tam_sorteados = num_sorteados . size ();
+    size_t tam_jogador = num_jogador . size();
+    vector<int>num_vencidos;
+    int vet_jogador[tam_jogador], vet_sorteados[tam_sorteados];
+    cout << "\n\nValor de vector c/ num_sorteados: " << tam_sorteados << "\n\n";
+    cout << "Valor de vector c/ num_jogador: " << tam_jogador << "\n\n";
+    for(int i=0; i<tam_jogador; i++){//preenchendo os vetores
+        vet_jogador[i] = num_jogador[i];
     }
-    cout << "\n\n";
-    cout << "\n\nNumeros sorteados: ";
-    insertionsort(num_sorteados, tam_num);
-    for(int i=0; i<tam_num; i++){ //3º validação
-        cout << num_sorteados[i] << "\t";
+    for(int i=0; i<tam_sorteados; i++){
+        vet_sorteados[i] = num_sorteados[i];
     }
-    int num_comum = 0, num_iguais[tam];
-    for(int i=0; i<tam_num; i++){
-        for(int j=0; j<tam; j++){
-            if(num_sorteados[i] == num_escolhidos[j]){
-                num_comum++;
-                num_iguais[i] = num_sorteados[i];
+    insertionsort(vet_jogador, tam_jogador);
+    insertionsort(vet_sorteados, tam_sorteados);
+    for(int i=0; i<tam_jogador; i++){
+        cout << vet_jogador[i] << "\t";
+    }
+    cout << "\n\n\n";
+    for(int i=0; i<tam_sorteados; i++){
+        cout << vet_sorteados[i] << "\t";
+    }
+    int x=0;
+    for(int i=0; i<tam_sorteados; i++){
+        for(int j=0; j<tam_jogador; j++){
+            if(vet_sorteados[i] == vet_jogador[j]){
+                num_vencidos.push_back(vet_sorteados[i]);
+                x++;
             }
         }
     }
-    cout << "\ntot num comum: " << num_comum << "\n";
-    cout << "\nNumeros sorteados em comum: ";
-    for(int i=0; i<num_comum; i++){
-        cout << num_iguais[i] << "\t";
+    cout <<"\n\nnumeros iguais: ";
+    for(int i=0; i<x; i++){
+        cout << num_vencidos[i] << "\t";
     }
 
-
-    return 0;
+    return num_vencidos;
 }
 
 //Funçao que verifica se existem numeros iguais sendo gerados.

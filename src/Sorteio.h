@@ -13,8 +13,10 @@ class Sorteio{
     //void sorteando();
 
 };
+
 std::vector<int> adm(std::vector<int> &arr);
-//void sorteando(int num_escolhidos[], int tam, int num_jogadas, int valor_da_aposta);
-int comparar(int num_escolhido[], int tam, int num_sorteados[], int tam_num);
+std::vector<int> comparar(std::vector<int> &num_sorteados, std::vector<int> &num_jogador);
+
+
 
 #endif
