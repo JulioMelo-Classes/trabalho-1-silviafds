@@ -96,8 +96,15 @@ int main(int argc, char *argv[]){
         cout << "\n\nTam de num_igual: " << numero_acertos << endl;
         cout << "\n\nTam de spot: " << spot << endl;
 
-        int vetor_ganho;
-        vetor_ganho = calculo(valor_da_aposta, num_jogadas, numero_acertos, spot);
+        int valor_ganho;
+        valor_ganho = calculo(valor_da_aposta, num_jogadas, numero_acertos, spot);
+        cout << "Valor do ganho: " << valor_ganho << endl;
+
+        int valortotal;
+
+        valortotal = valor_ganho + valor_da_aposta;
+        cout << "Valor total: " << valortotal << endl;
+
 
     }
 
