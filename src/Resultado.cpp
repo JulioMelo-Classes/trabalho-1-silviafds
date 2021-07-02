@@ -39,7 +39,27 @@ int calculo(int valor_da_aposta, int num_jogadas, int numero_acertos, int spot){
     cout << "Verificar elemento da matriz: " << verificar << endl;
 
     valor_premio = verificar * aposta_por_jogada;
-    //cout << "Valor do prêmio: " << valor_premio << endl;
-    
+    cout << "Valor do prêmio: " << valor_premio << endl;
+
     return valor_premio;
+}
+
+int calculo_tot(int valor_da_aposta, int num_jogadas, int valor_ganho){
+    int aposta_por_jogada = 0, valor_total;
+
+    aposta_por_jogada = valor_da_aposta/num_jogadas;
+    num_jogadas = num_jogadas - 1;
+    valor_total = num_jogadas * aposta_por_jogada;
+    valor_total = valor_ganho + valor_total;
+    cout << "Valor total do crédito: " << valor_total << endl;
+    return valor_total;
+}
+
+void apresentar(int valor_da_aposta, int num_jogadas){
+    int aposta_por_jogada;
+    aposta_por_jogada = valor_da_aposta/num_jogadas;
+
+    cout << ">>> Aposta lida com sucesso!";
+    cout << "\n    Você apostara um total de $" << valor_da_aposta << " créditos";
+    cout << "\n    Jogará um total de " <<  num_jogadas  << " rodadas, apostando $" << aposta_por_jogada << " créditos por rodada\n";
 }

@@ -89,6 +89,10 @@ int main(int argc, char *argv[]){
         cout << "\nJogo invalido!\n";
     }else{
         cout << "\nJogo correto!\n";
+        apresentar(valor_da_aposta, num_jogadas);//fica fora o for
+        //for(int i=0; i<2; i++){
+
+        
         num_sorteados = adm(arr);
         num_igual = comparar(num_jogador, num_sorteados);
         size_t spot = num_jogador . size();
@@ -96,16 +100,14 @@ int main(int argc, char *argv[]){
         cout << "\n\nTam de num_igual: " << numero_acertos << endl;
         cout << "\n\nTam de spot: " << spot << endl;
 
-        int valor_ganho;
+        int valor_ganho, valor_total;
         valor_ganho = calculo(valor_da_aposta, num_jogadas, numero_acertos, spot);
-        cout << "Valor do ganho: " << valor_ganho << endl;
-
-        int valortotal;
-
-        valortotal = valor_ganho + valor_da_aposta;
-        cout << "Valor total: " << valortotal << endl;
+        valor_total = calculo_tot(valor_da_aposta, num_jogadas, valor_ganho);
+        //apresentar(valor_da_aposta, num_jogadas);//fica fora o for
+        
 
 
+      //  }
     }
 
     return 0;
