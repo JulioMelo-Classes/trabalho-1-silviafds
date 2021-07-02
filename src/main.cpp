@@ -7,6 +7,7 @@
 #include <iomanip>
 #include "Validar.h"
 #include "Sorteio.h"
+#include "Resultado.h"
 using namespace std;
 
 int main(int argc, char *argv[]){
@@ -90,6 +91,10 @@ int main(int argc, char *argv[]){
         cout << "\nJogo correto!\n";
         num_sorteados = adm(arr);
         num_igual = comparar(num_jogador, num_sorteados);
+        size_t numero_acertos = num_igual . size();
+        cout << "\n\nTam de num_igual: " << numero_acertos << endl;
+        int vetor_ganho;
+        vetor_ganho = calculo(valor_da_aposta, num_jogadas, numero_acertos);
 
     }
 
