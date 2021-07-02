@@ -29,10 +29,10 @@ int val(int num_escolhidos[], int tam){
     insertionsort(num_escolhidos, tam);//chamada da funcão de ordenação
     
     int ordenar_crescente(int num_escolhidos, int tam);
-    cout << "\nOrdem crescente ";
-    for(int i=0; i<tam; i++){//números em ordem crescente
-        cout << num_escolhidos[i] << "\t";
-    }
+    //cout << "\nOrdem crescente ";
+    //for(int i=0; i<tam; i++){//números em ordem crescente
+      /*  cout << num_escolhidos[i] << "\t";
+    }*/
 
 
     for(int i=0; i<tam; i++){//1º validação -- numeros repetidos
