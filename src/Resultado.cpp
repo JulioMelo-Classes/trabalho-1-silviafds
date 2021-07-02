@@ -38,5 +38,9 @@ int calculo(int valor_da_aposta, int num_jogadas, int numero_acertos, int spot){
     cout << "Hit: " << numero_acertos << endl;
     cout << "Verificar elemento da matriz: " << verificar << endl;
 
+    valor_premio = verificar * aposta_por_jogada;
+    cout << "Valor do prêmio: " << valor_premio << endl;
+    
+
     return valor_premio;
 }
