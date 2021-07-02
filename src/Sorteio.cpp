@@ -11,8 +11,8 @@ using namespace std;
 using std::vector;
 
 vector<int> comparar(vector<int> &num_jogador, vector<int> &num_sorteados){
-    size_t tam_sorteados = num_sorteados . size ();
-    size_t tam_jogador = num_jogador . size();
+    size_t tam_sorteados = num_sorteados.size();
+    size_t tam_jogador = num_jogador.size();
     vector<int>num_vencidos;
     int vet_jogador[tam_jogador], vet_sorteados[tam_sorteados];
     cout << "\n\nValor de vector c/ num_sorteados: " << tam_sorteados << "\n\n";
@@ -49,7 +49,7 @@ vector<int> comparar(vector<int> &num_jogador, vector<int> &num_sorteados){
     return num_vencidos;
 }
 
-//Funçao que verifica se existem numeros iguais sendo gerados.
+//Função que verifica se existem numeros iguais sendo gerados.
 bool Sorteio::Existe(int vetor_sorteado[],int quantidade_num, int valor){
     for(int i = 0;i<valor;i++){
         if(vetor_sorteado[i]==valor)
