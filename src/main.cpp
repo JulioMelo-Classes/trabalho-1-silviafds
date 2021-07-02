@@ -42,7 +42,7 @@ int main(int argc, char *argv[]){
                 cout << "\narquivo com coisas";
                 if(teste_valor_linhas < 3 || teste_valor_linhas > 3){//verifica numero de linhas
                     recebedora = 1;
-                    cout << "\ntamanho invalido de linhas" << endl;
+                    cout << "\ntamanho inválido de linhas" << endl;
                 }else{
                     cout<<"\ntamanho de linhas ok" << endl;
                     while(xx >> y){//aplicando stringstream
@@ -82,12 +82,12 @@ int main(int argc, char *argv[]){
     int xy = 0;//variavel q receve valor total de crédito do jogador
 
     if(recebedora == 1){
-        cout << "\nJogo invalido!\n";
+        cout << "\nJogo inválido!\n";
 
     }else{
         apresentar(valor_da_aposta, num_jogadas);//fica fora o for
 
-        for(int i=1; i<=2; i++){
+        for(int i=1; i<=3; i++){
 
             num_sorteados = adm(arr);//recebe vetor num sorteado
             num_igual = comparar(num_jogador, num_sorteados);//recbe vetor hits
