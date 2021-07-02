@@ -42,9 +42,9 @@ int main(int argc, char *argv[]){
                 cout << "\narquivo com coisas";
                 if(teste_valor_linhas < 3 || teste_valor_linhas > 3){//verifica numero de linhas
                     recebedora = 1;
-                    cout << "\ntamanho invalido de linhas";
+                    cout << "\ntamanho invalido de linhas" << endl;
                 }else{
-                    cout<<"\ntamanho de linhas ok";
+                    cout<<"\ntamanho de linhas ok" << endl;
                     while(xx >> y){//aplicando stringstream
                         v_float[j] = y;//guardando no vetor
                         if(j>=2){

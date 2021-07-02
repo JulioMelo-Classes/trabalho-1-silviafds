@@ -10,10 +10,7 @@
 #include "Resultado.h"
 using namespace std;
 
-
-
-
-float matriz[16][16] = {{0, 3},
+double matriz[16][16] = {{0, 3},
                       {0, 1, 9},
                       {0, 1, 2, 16},
                       {0, 0.5, 2, 6, 12},
@@ -37,7 +34,8 @@ int calculo(int valor_da_aposta, int num_jogadas, int numero_acertos, int spot){
     aposta_por_jogada = valor_da_aposta/num_jogadas;    
     cout << "\nValor por aposta: " << aposta_por_jogada << endl;
 
-    int verificar = matriz[2][3];
+    double verificar = matriz[spot-1][numero_acertos];
+    cout << "Hit: " << numero_acertos << endl;
     cout << "Verificar elemento da matriz: " << verificar << endl;
 
     return valor_premio;
