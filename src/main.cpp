@@ -28,7 +28,7 @@ int main(int argc, char *argv[]){
         arquivo_tst_keno.open(argv[1]);
         if(arquivo_tst_keno.is_open()){
             while(getline(arquivo_tst_keno, linha)){
-                cout << linha << endl;
+                //cout << linha << endl;
                 xx << linha << endl;
                 if(linha.empty()){
                     linha_vazia++;
@@ -56,11 +56,6 @@ int main(int argc, char *argv[]){
                         tam++;
                     }
 
-                    /*cout << "\n==CONVERTIDOS==\n";
-                    for(int i=0; i<tam;i++){
-                        cout << v_float[i] << "\t";
-                    }*/
-
                     valor_da_aposta = v_float[0];
                    // cout << "\nValor da aposta: " << valor_da_aposta <<  fixed << setprecision(1) << "\n";
 
@@ -80,34 +75,39 @@ int main(int argc, char *argv[]){
             }
         } 
     }   
-    vector<int>num_sorteados;
-    vector<int>arr;
-    vector<int>num_igual;
+    vector<int>num_sorteados;//recebe numeros sorteados aleatorio
+    vector<int>arr;//passei na func adm para me retornar vetor de num sorteado
+    vector<int>num_igual;//vetor q guardar os hits
     cout << "\n\n";
-    
+    int xy = 0;//variavel q receve valor total de crédito do jogador
+
     if(recebedora == 1){
         cout << "\nJogo invalido!\n";
+
     }else{
-        cout << "\nJogo correto!\n";
         apresentar(valor_da_aposta, num_jogadas);//fica fora o for
-        //for(int i=0; i<2; i++){
 
-        
-        num_sorteados = adm(arr);
-        num_igual = comparar(num_jogador, num_sorteados);
-        size_t spot = num_jogador . size();
-        size_t numero_acertos = num_igual . size();
-        cout << "\n\nTam de num_igual: " << numero_acertos << endl;
-        cout << "\n\nTam de spot: " << spot << endl;
+        for(int i=1; i<=2; i++){
 
-        int valor_ganho, valor_total;
-        valor_ganho = calculo(valor_da_aposta, num_jogadas, numero_acertos, spot);
-        valor_total = calculo_tot(valor_da_aposta, num_jogadas, valor_ganho);
-        //apresentar(valor_da_aposta, num_jogadas);//fica fora o for
-        
+            num_sorteados = adm(arr);//recebe vetor num sorteado
+            num_igual = comparar(num_jogador, num_sorteados);//recbe vetor hits
+            size_t spot = num_jogador . size();//pego tamanho de vector
+            size_t numero_acertos = num_igual . size();//valor incomum
+            cout << "\nTam de num_igual: " << numero_acertos << endl;
+            cout << "\nTam de spot: " << spot << endl;
 
+            int valor_ganho, valor_total;
+            valor_ganho = calculo(valor_da_aposta, num_jogadas, numero_acertos, spot);//valor do premio
+            valor_total = calculo_tot(valor_da_aposta, num_jogadas, valor_ganho);//soma credito + premio 
+            apresentar2(num_sorteados, num_igual, valor_ganho, valor_total, i, num_jogadas, valor_da_aposta);
+            num_sorteados.clear();
+            num_igual.clear();
+            xy = valor_total;
+            //num_sorteados.erase(num_sorteados.begin(), num_sorteados.end());
+            //num_igual.erase(num_igual.begin(), num_igual.end());
+        }
 
-      //  }
+        sumario(valor_da_aposta, xy);
     }
 
     return 0;

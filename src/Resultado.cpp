@@ -63,3 +63,46 @@ void apresentar(int valor_da_aposta, int num_jogadas){
     cout << "\n    Você apostara um total de $" << valor_da_aposta << " créditos";
     cout << "\n    Jogará um total de " <<  num_jogadas  << " rodadas, apostando $" << aposta_por_jogada << " créditos por rodada\n";
 }
+
+void apresentar2(vector<int> &num_sorteados, vector<int> &num_igual, int valor_ganho, int valor_total, int cont, int num_jogadas, int valor_da_aposta){
+    int valor_aposta = valor_da_aposta/num_jogadas;
+
+    size_t tam_sorteados = num_sorteados . size();
+    size_t tam_iguais = num_igual . size();
+
+    int vetor_sort[tam_sorteados];
+    for(int i=0; i<tam_sorteados; i++){
+        vetor_sort[i] = num_sorteados[i];
+    }
+    insertionsort(vetor_sort, tam_sorteados);
+
+    cout << "Esta é a rodada #" << cont << " de " << num_jogadas << ", sua aposta é " << valor_aposta << ". Boa sorte!";
+    cout << "\nOs números sorteados são: [ ";
+    for(int i=0; i<tam_sorteados; i++){
+       cout <<  vetor_sort[i] << "\t";
+    }
+    cout << "]";
+    cout << "\n\nVocê acertou os números [ ";
+    for(int i=0; i<tam_iguais; i++){
+       cout <<  num_igual[i] << "\t";
+    }
+    cout << "], (acrescentar info)";
+    cout << "\nSua taxa de retorno é de (add info), assim você sai com: $" << valor_ganho;
+    cout << "\nVocê possui um total de: "  << valor_total << " créditos.";
+    cout << "\n-----------------------------------------------------------------------------\n";
+
+}
+
+void sumario(int valor_da_aposta, int valor_total){
+    int cred_ganhado = valor_total + valor_da_aposta;   
+    
+    cout << "\n\n============ Súmario =============";
+    cout << "\n>>> Você gastou um total de $" << valor_da_aposta << " créditos";
+    if(cred_ganhado > 1){
+        cout << "\n>>> Hooray! você ganhou $" << valor_total << " créditos!";
+    }else{
+        cout << "\n>>> Hooray! você perdeu $" << valor_total << " créditos!";
+    }
+    cout << "\n>>> Você está saindo do jogo com um total de " << cred_ganhado << " créditos.\n";
+
+}

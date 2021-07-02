@@ -16,8 +16,8 @@ vector<int> comparar(vector<int> &num_jogador, vector<int> &num_sorteados){
     size_t tam_jogador = num_jogador.size();
     vector<int>num_vencidos;
     int vet_jogador[tam_jogador], vet_sorteados[tam_sorteados];
-    cout << "\n\nValor de vector c/ num_sorteados: " << tam_sorteados << "\n\n";
-    cout << "Valor de vector c/ num_jogador: " << tam_jogador << "\n\n";
+    //cout << "\n\nValor de vector c/ num_sorteados: " << tam_sorteados << "\n\n";
+    //cout << "Valor de vector c/ num_jogador: " << tam_jogador << "\n\n";
     for(int i=0; i<tam_jogador; i++){//preenchendo os vetores
         vet_jogador[i] = num_jogador[i];
     }
@@ -26,13 +26,13 @@ vector<int> comparar(vector<int> &num_jogador, vector<int> &num_sorteados){
     }
     insertionsort(vet_jogador, tam_jogador);
     insertionsort(vet_sorteados, tam_sorteados);
-    for(int i=0; i<tam_jogador; i++){
+    /*for(int i=0; i<tam_jogador; i++){
         cout << vet_jogador[i] << "\t";
     }
     cout << "\n\n\n";
     for(int i=0; i<tam_sorteados; i++){
         cout << vet_sorteados[i] << "\t";
-    }
+    }*/
     int x=0;
     for(int i=0; i<tam_sorteados; i++){
         for(int j=0; j<tam_jogador; j++){
@@ -42,10 +42,10 @@ vector<int> comparar(vector<int> &num_jogador, vector<int> &num_sorteados){
             }
         }
     }
-    cout <<"\n\nnumeros iguais: ";
+    /*cout <<"\n\nnumeros iguais: ";
     for(int i=0; i<x; i++){
         cout << num_vencidos[i] << "\t";
-    }
+    }*/
 
     return num_vencidos;
 }
