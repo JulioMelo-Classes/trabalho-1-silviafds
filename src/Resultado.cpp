@@ -40,32 +40,52 @@ int calculo(int valor_da_aposta, int num_jogadas, int numero_acertos, int spot){
         double teste_spot = matriz[spot][i];
         cout << i << "     |     " << teste_spot << endl;
     }*/
+    valor_restante = valor_da_aposta - aposta_por_jogada;
 
     cout << "\nValor de aposta por rodada: " << aposta_por_jogada << endl;
 
-    double verificar = matriz[spot-1][numero_acertos];
-    cout << "Hit: " << numero_acertos << endl;
-    cout << "Verificar elemento da matriz: " << verificar << endl;
+    double verificar = matriz[spot-1][numero_acertos]; // Verifica qual elemento da matriz vai ser multiplicado pelo valor apostado.
+    cout << "Hits: " << numero_acertos << endl;
+    cout << "Elemento da matriz: " << verificar << endl;
 
     //valor_restante = valor_da_aposta - aposta_por_jogada;
      
     valor_premio = aposta_por_jogada * verificar;
-    //cout << "Valor da aposta: " << aposta_por_jogada << endl;
     cout << "Valor do prêmio: " << valor_premio << endl;
 
-    return valor_premio;
+    int valor_resto_aposta = valor_da_aposta - aposta_por_jogada;
+    cout << "Resto da aposta: " << valor_resto_aposta << endl;
+
+    int valor_total = valor_resto_aposta + valor_premio;
+    cout << "Valor total: " << valor_total << endl;
+    valor_da_aposta = valor_total; 
+
+
+    return valor_total;
 }
 
-int calculo_tot(int valor_da_aposta, int num_jogadas, int valor_ganho){
-    int aposta_por_jogada = 0, valor_total;
+/*int calculo_tot(int valor_da_aposta, int num_jogadas, int valor_do_premio){
+    int aposta_por_jogada, valor_total;
 
     aposta_por_jogada = valor_da_aposta/num_jogadas;
+
+    cout << "Valor da aposta: " << valor_da_aposta << endl;
+
+    int valor_resto_da_aposta = valor_da_aposta - aposta_por_jogada;
+
+    cout << "Resto da aposta: " << valor_resto_da_aposta << endl;
+    valor_total = valor_resto_da_aposta + valor_do_premio;
+    cout << "Valor total: " << valor_total;
+    valor_da_aposta = valor_total;
+
+
+    /*aposta_por_jogada = valor_da_aposta/num_jogadas;
     num_jogadas = num_jogadas - 1;
     valor_total = num_jogadas * aposta_por_jogada;
     //valor_total = valor_ganho + valor_total;
     cout << "Valor total do crédito: " << valor_total << endl;
-    return valor_total;
-}
+    return valor_da_aposta;
+}*/
 
 void apresentar(int valor_da_aposta, int num_jogadas){
     int aposta_por_jogada;
@@ -78,7 +98,7 @@ void apresentar(int valor_da_aposta, int num_jogadas){
     
 }
 
-void apresentar2(vector<int> &num_sorteados, vector<int> &num_igual, int valor_ganho, int valor_total, int cont, int num_jogadas, int valor_da_aposta){
+void apresentar2(vector<int> &num_sorteados, vector<int> &num_igual, int valor_do_premio, int valor_total, int cont, int num_jogadas, int valor_da_aposta){
     int valor_aposta_por_rodada = valor_da_aposta/num_jogadas;
 
     size_t tam_sorteados = num_sorteados . size();
@@ -105,7 +125,7 @@ void apresentar2(vector<int> &num_sorteados, vector<int> &num_igual, int valor_g
 
     valor_restante = valor_total - valor_da_aposta; 
     cout << "], (acrescentar info)";
-    cout << "\nSua taxa de retorno é de (add info), assim você sai com: $" << valor_ganho;
+    cout << "\nSua taxa de retorno é de (add info), assim você sai com: $" << valor_do_premio;
     cout << "\nVocê possui um total de: "  << valor_restante << " créditos.";
     cout << "\n-----------------------------------------------------------------------------\n";
 

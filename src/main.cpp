@@ -96,10 +96,10 @@ int main(int argc, char *argv[]){
             cout << "\nTam de num_igual: " << numero_acertos << endl;
             cout << "\nTam de spot: " << spot << endl;
 
-            int valor_ganho, valor_total;
-            valor_ganho = calculo(valor_da_aposta, num_jogadas, numero_acertos, spot);//valor do premio
-            valor_total = calculo_tot(valor_da_aposta, num_jogadas, valor_ganho);//soma credito + premio 
-            apresentar2(num_sorteados, num_igual, valor_ganho, valor_total, i, num_jogadas, valor_da_aposta);
+            int valor_do_premio, valor_total;
+            valor_do_premio = calculo(valor_da_aposta, num_jogadas, numero_acertos, spot);//valor do premio
+            //valor_total = calculo_tot(valor_da_aposta, num_jogadas, valor_do_premio);//soma credito + premio 
+            apresentar2(num_sorteados, num_igual, valor_do_premio, valor_total, i, num_jogadas, valor_da_aposta);
             num_sorteados.clear();
             num_igual.clear();
             xy = valor_total;
