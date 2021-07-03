@@ -145,7 +145,9 @@ void apresentar2(vector<int> &num_sorteados, vector<int> &num_igual, float valor
        cout <<  num_igual[i] << " ";
     }
     cout << "], um total de " << numero_acertos << " hits de " << spot << "." << endl;
-    cout << "\nSua taxa de retorno é de " << verificar << " assim você sai com: $" << valor_ganho;
+    cout.precision(2);
+    cout << fixed << "\nSua taxa de retorno é de " << verificar << " assim você sai com: $" << valor_ganho;
+    cout.precision(2);
     cout << "\nVocê possui um total de: "  << valor_total << " créditos.";
     cout << "\n-----------------------------------------------------------------------------\n";
 
