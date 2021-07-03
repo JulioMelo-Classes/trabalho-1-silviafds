@@ -99,7 +99,7 @@ int main(int argc, char *argv[]){
                 //cout << "\nTam de num_igual: " << numero_acertos << endl;
                 //cout << "\nTam de spot: " << spot << endl;
 
-                int valor_ganho, valor_total;
+                float valor_ganho, valor_total;
                 valor_ganho = calculo(valor_da_aposta, num_jogadas, numero_acertos, spot);//valor do premio
                 valor_total = calculo_tot(valor_da_aposta, num_jogadas, valor_ganho, i, resto);//soma credito + premio 
                 resto = valor_total;

@@ -121,7 +121,7 @@ void apresentar(int valor_da_aposta, int num_jogadas, char* arquivo, int spot, s
 
 }
 
-void apresentar2(vector<int> &num_sorteados, vector<int> &num_igual, int valor_ganho, int valor_total, int cont, int num_jogadas, int valor_da_aposta, int numero_acertos, int spot){
+void apresentar2(vector<int> &num_sorteados, vector<int> &num_igual, float valor_ganho, int valor_total, int cont, int num_jogadas, int valor_da_aposta, int numero_acertos, int spot){
     int valor_aposta = valor_da_aposta/num_jogadas;
 
     size_t tam_sorteados = num_sorteados . size();
