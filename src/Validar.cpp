@@ -50,6 +50,16 @@ int val(int num_escolhidos[], int tam){
     }
 
 
+    //Tentando validar com base na tabela ASCII
+
+    for(int i = 0; i < 0; i++){
+        if (num_escolhidos[i] < (char) 48 || num_escolhidos[i] > (char) 57){
+            cout << "ERRO! ARQUIVO COM SIMBOLOS." << endl;
+            return 1;
+        }
+    }
+
+
     /*for(int i=0; i<tam; i++){ //3º validação
         if(num_escolhidos[i] != 6){
             cout << "I can't open this file." << endl;

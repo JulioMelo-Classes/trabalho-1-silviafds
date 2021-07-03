@@ -20,12 +20,13 @@ int main(int argc, char *argv[]){
     string linha2;
     int teste_valor_linhas = 0, linha_vazia = 0, cont = 0;
     vector<int> num_jogador;
+
     
     if(argc < 2){
         recebedora = 1;
         cout << "ERRO! VOCÊ NÃO INSERIU NENHUM ARQUIVO.";
     } else {
-        arquivo_tst_keno.open(argv[1]);
+        arquivo_tst_keno.open(argv[1], ios::binary)  ;
         if(arquivo_tst_keno.is_open()){
             while(getline(arquivo_tst_keno, linha)){
                 //cout << linha << endl;
