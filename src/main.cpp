@@ -19,11 +19,11 @@ int main(int argc, char *argv[]){
     string linha;
     string linha2;
     int teste_valor_linhas = 0, linha_vazia = 0, cont = 0;
-    vector<int>num_jogador;
+    vector<int> num_jogador;
     
     if(argc < 2){
         recebedora = 1;
-        cout << "não tem arquivo";
+        cout << "ERRO! VOCÊ NÃO INSERIU NENHUM ARQUIVO.";
     } else {
         arquivo_tst_keno.open(argv[1]);
         if(arquivo_tst_keno.is_open()){
@@ -37,14 +37,14 @@ int main(int argc, char *argv[]){
             }
             if(linha_vazia == teste_valor_linhas){
                 recebedora = 1;
-                cout<< "ARQUIVO VAZIO";
+                cout<< "ERRO! ARQUIVO VAZIO";
             }else{
-                cout << "\narquivo com coisas";
+                //cout << "\nArquivo com coisas";
                 if(teste_valor_linhas < 3 || teste_valor_linhas > 3){//verifica numero de linhas
                     recebedora = 1;
-                    cout << "\ntamanho invalido de linhas" << endl;
+                    cout << "\nERRO! TAMANHO INVÁLIDO DE LINHAS" << endl;
                 }else{
-                    cout<<"\ntamanho de linhas ok" << endl;
+                    //cout<<"\ntamanho de linhas ok" << endl;
                     while(xx >> y){//aplicando stringstream
                         v_float[j] = y;//guardando no vetor
                         if(j>=2){
@@ -64,6 +64,7 @@ int main(int argc, char *argv[]){
 
                     tam = tam - 2;
                     int num_escolhidos[tam], jj = 2;
+                    
 
                     for(int l = 0; l<tam; l++){//preenchendo vetor com números escolhidos
                         num_escolhidos[l] = v_float[jj];
@@ -82,10 +83,11 @@ int main(int argc, char *argv[]){
     int xy = 0;//variavel q receve valor total de crédito do jogador
     int resto = 0;
     if(recebedora == 1){
-        cout << "\nJogo invalido!\n";
+        //cout << "\nERRO! JOGO INVÁLIDO\n";
 
     }else{
-        apresentar(valor_da_aposta, num_jogadas);//fica fora o for
+        size_t spot = num_jogador . size();
+        apresentar(valor_da_aposta, num_jogadas, argv[1], spot, num_jogador);//fica fora o for
 
        // for(int i=1; i<=2; i++){
 
@@ -94,14 +96,14 @@ int main(int argc, char *argv[]){
                 num_igual = comparar(num_jogador, num_sorteados);//recbe vetor hits
                 size_t spot = num_jogador . size();//pego tamanho de vector
                 size_t numero_acertos = num_igual . size();//valor incomum
-                cout << "\nTam de num_igual: " << numero_acertos << endl;
-                cout << "\nTam de spot: " << spot << endl;
+                //cout << "\nTam de num_igual: " << numero_acertos << endl;
+                //cout << "\nTam de spot: " << spot << endl;
 
                 int valor_ganho, valor_total;
                 valor_ganho = calculo(valor_da_aposta, num_jogadas, numero_acertos, spot);//valor do premio
                 valor_total = calculo_tot(valor_da_aposta, num_jogadas, valor_ganho, i, resto);//soma credito + premio 
                 resto = valor_total;
-                apresentar2(num_sorteados, num_igual, valor_ganho, valor_total, i, num_jogadas, valor_da_aposta);
+                apresentar2(num_sorteados, num_igual, valor_ganho, valor_total, i, num_jogadas, valor_da_aposta, numero_acertos, spot);
                 num_sorteados.clear();
                 num_igual.clear();
                 xy = valor_total;

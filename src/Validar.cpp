@@ -37,14 +37,14 @@ int val(int num_escolhidos[], int tam){
 
     for(int i=0; i<tam; i++){//1º validação -- numeros repetidos
         if(num_escolhidos[i] == num_escolhidos[i+1]){
-            cout << "Nao sera possivel abrir o arquivo. Numeros iguais." << endl;
+            cout << "ERRO! SEU ARQUIVO POSSUI NÚMEROS DE APOSTAS IGUAIS, O QUE NÃO É PERMITIDO!" << endl;
             return 1;            
             break;
         }
     }
 
-    if(tam > 17){ //2º validação -- quantidade de numeros apostados maior que 20.
-        cout << "Não vai abrir o arquivo. Números demais." << endl;
+    if(tam > 15){ //2º validação -- quantidade de numeros apostados maior que 20.
+        cout << "ERRO! VOCÊ SÓ PODE APOSTAR ATÉ 15 NÚMEROS!" << endl;
         return 1;
         
     }
