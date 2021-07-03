@@ -80,7 +80,7 @@ int main(int argc, char *argv[]){
     vector<int>num_igual;//vetor q guardar os hits
     cout << "\n\n";
     int xy = 0;//variavel q receve valor total de crédito do jogador
-
+    int resto = 0;
     if(recebedora == 1){
         cout << "\nJogo invalido!\n";
 
@@ -89,7 +89,7 @@ int main(int argc, char *argv[]){
 
        // for(int i=1; i<=2; i++){
 
-           for (int i = 1; i <= num_jogadas; i++) {
+            for(int i = 1; i <= num_jogadas; i++) {
                 num_sorteados = adm(arr);//recebe vetor num sorteado
                 num_igual = comparar(num_jogador, num_sorteados);//recbe vetor hits
                 size_t spot = num_jogador . size();//pego tamanho de vector
@@ -99,12 +99,13 @@ int main(int argc, char *argv[]){
 
                 int valor_ganho, valor_total;
                 valor_ganho = calculo(valor_da_aposta, num_jogadas, numero_acertos, spot);//valor do premio
-                valor_total = calculo_tot(valor_da_aposta, num_jogadas, valor_ganho, i);//soma credito + premio 
+                valor_total = calculo_tot(valor_da_aposta, num_jogadas, valor_ganho, i, resto);//soma credito + premio 
+                resto = valor_total;
                 apresentar2(num_sorteados, num_igual, valor_ganho, valor_total, i, num_jogadas, valor_da_aposta);
                 num_sorteados.clear();
                 num_igual.clear();
                 xy = valor_total;
-           }
+            }
             //num_sorteados.erase(num_sorteados.begin(), num_sorteados.end());
             //num_igual.erase(num_igual.begin(), num_igual.end());
         //}
