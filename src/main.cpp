@@ -42,7 +42,7 @@ int main(int argc, char *argv[]){
                 cout << "\narquivo com coisas";
                 if(teste_valor_linhas < 3 || teste_valor_linhas > 3){//verifica numero de linhas
                     recebedora = 1;
-                    cout << "\ntamanho inválido de linhas" << endl;
+                    cout << "\ntamanho invalido de linhas" << endl;
                 }else{
                     cout<<"\ntamanho de linhas ok" << endl;
                     while(xx >> y){//aplicando stringstream
@@ -82,12 +82,12 @@ int main(int argc, char *argv[]){
     int xy = 0;//variavel q receve valor total de crédito do jogador
 
     if(recebedora == 1){
-        cout << "\nJogo inválido!\n";
+        cout << "\nJogo invalido!\n";
 
     }else{
         apresentar(valor_da_aposta, num_jogadas);//fica fora o for
 
-        for(int i=1; i<=3; i++){
+       // for(int i=1; i<=2; i++){
 
             num_sorteados = adm(arr);//recebe vetor num sorteado
             num_igual = comparar(num_jogador, num_sorteados);//recbe vetor hits
@@ -96,16 +96,16 @@ int main(int argc, char *argv[]){
             cout << "\nTam de num_igual: " << numero_acertos << endl;
             cout << "\nTam de spot: " << spot << endl;
 
-            int valor_do_premio, valor_total;
-            valor_do_premio = calculo(valor_da_aposta, num_jogadas, numero_acertos, spot);//valor do premio
-            //valor_total = calculo_tot(valor_da_aposta, num_jogadas, valor_do_premio);//soma credito + premio 
-            apresentar2(num_sorteados, num_igual, valor_do_premio, valor_total, i, num_jogadas, valor_da_aposta);
+            int valor_ganho, valor_total;
+            valor_ganho = calculo(valor_da_aposta, num_jogadas, numero_acertos, spot);//valor do premio
+            valor_total = calculo_tot(valor_da_aposta, num_jogadas, valor_ganho);//soma credito + premio 
+            apresentar2(num_sorteados, num_igual, valor_ganho, valor_total, i, num_jogadas, valor_da_aposta);
             num_sorteados.clear();
             num_igual.clear();
             xy = valor_total;
             //num_sorteados.erase(num_sorteados.begin(), num_sorteados.end());
             //num_igual.erase(num_igual.begin(), num_igual.end());
-        }
+        //}
 
         sumario(valor_da_aposta, xy);
     }
