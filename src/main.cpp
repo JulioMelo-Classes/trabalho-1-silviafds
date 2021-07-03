@@ -89,20 +89,22 @@ int main(int argc, char *argv[]){
 
        // for(int i=1; i<=2; i++){
 
-            num_sorteados = adm(arr);//recebe vetor num sorteado
-            num_igual = comparar(num_jogador, num_sorteados);//recbe vetor hits
-            size_t spot = num_jogador . size();//pego tamanho de vector
-            size_t numero_acertos = num_igual . size();//valor incomum
-            cout << "\nTam de num_igual: " << numero_acertos << endl;
-            cout << "\nTam de spot: " << spot << endl;
+           for (int i = 1; i <= num_jogadas; i++) {
+                num_sorteados = adm(arr);//recebe vetor num sorteado
+                num_igual = comparar(num_jogador, num_sorteados);//recbe vetor hits
+                size_t spot = num_jogador . size();//pego tamanho de vector
+                size_t numero_acertos = num_igual . size();//valor incomum
+                cout << "\nTam de num_igual: " << numero_acertos << endl;
+                cout << "\nTam de spot: " << spot << endl;
 
-            int valor_ganho, valor_total;
-            valor_ganho = calculo(valor_da_aposta, num_jogadas, numero_acertos, spot);//valor do premio
-            valor_total = calculo_tot(valor_da_aposta, num_jogadas, valor_ganho);//soma credito + premio 
-            apresentar2(num_sorteados, num_igual, valor_ganho, valor_total, i, num_jogadas, valor_da_aposta);
-            num_sorteados.clear();
-            num_igual.clear();
-            xy = valor_total;
+                int valor_ganho, valor_total;
+                valor_ganho = calculo(valor_da_aposta, num_jogadas, numero_acertos, spot);//valor do premio
+                valor_total = calculo_tot(valor_da_aposta, num_jogadas, valor_ganho, i);//soma credito + premio 
+                apresentar2(num_sorteados, num_igual, valor_ganho, valor_total, i, num_jogadas, valor_da_aposta);
+                num_sorteados.clear();
+                num_igual.clear();
+                xy = valor_total;
+           }
             //num_sorteados.erase(num_sorteados.begin(), num_sorteados.end());
             //num_igual.erase(num_igual.begin(), num_igual.end());
         //}
