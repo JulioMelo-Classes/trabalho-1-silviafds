@@ -71,7 +71,7 @@ vector<int> adm(vector<int> &arr, int i){
     Sorteio var4;
     Sorteio var5;
     var2.GeraAleatorios(var4.vetor_sorteado, var3.quantidade_num, var5.limite);
-    cout << "\nESSA É A " << i << "º QUE VC ENTRA NA FUNC ADM";
+    cout << "\nESSA É A " << i << "ª QUE VOCÊ ENTRA NA FUNÇÃO ADM";
     //cout <<"\n Números sorteados: ";
     for(int i=0; i<20; i++){
         //cout << var4.vetor_sorteado[i] << "\t";
