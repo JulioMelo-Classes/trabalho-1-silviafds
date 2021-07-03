@@ -76,6 +76,7 @@ int main(int argc, char *argv[]){
             }
         } 
     }   
+
     vector<int>num_sorteados;//recebe numeros sorteados aleatorio
     vector<int>arr;//passei na func adm para me retornar vetor de num sorteado
     vector<int>num_igual;//vetor q guardar os hits
@@ -92,12 +93,10 @@ int main(int argc, char *argv[]){
        // for(int i=1; i<=2; i++){
 
             for(int i = 1; i <= num_jogadas; i++) {
-                num_sorteados = adm(arr);//recebe vetor num sorteado
+                num_sorteados = adm(arr, i);//recebe vetor num sorteado
                 num_igual = comparar(num_jogador, num_sorteados);//recbe vetor hits
                 size_t spot = num_jogador . size();//pego tamanho de vector
                 size_t numero_acertos = num_igual . size();//valor incomum
-                //cout << "\nTam de num_igual: " << numero_acertos << endl;
-                //cout << "\nTam de spot: " << spot << endl;
 
                 float valor_ganho, valor_total;
                 valor_ganho = calculo(valor_da_aposta, num_jogadas, numero_acertos, spot);//valor do premio
@@ -106,6 +105,7 @@ int main(int argc, char *argv[]){
                 apresentar2(num_sorteados, num_igual, valor_ganho, valor_total, i, num_jogadas, valor_da_aposta, numero_acertos, spot);
                 num_sorteados.clear();
                 num_igual.clear();
+                arr.clear();
                 xy = valor_total;
             }
             //num_sorteados.erase(num_sorteados.begin(), num_sorteados.end());

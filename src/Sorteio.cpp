@@ -16,8 +16,7 @@ vector<int> comparar(vector<int> &num_jogador, vector<int> &num_sorteados){
     size_t tam_jogador = num_jogador.size();
     vector<int>num_vencidos;
     int vet_jogador[tam_jogador], vet_sorteados[tam_sorteados];
-    //cout << "\n\nValor de vector c/ num_sorteados: " << tam_sorteados << "\n\n";
-    //cout << "Valor de vector c/ num_jogador: " << tam_jogador << "\n\n";
+    
     for(int i=0; i<tam_jogador; i++){//preenchendo os vetores
         vet_jogador[i] = num_jogador[i];
     }
@@ -26,13 +25,7 @@ vector<int> comparar(vector<int> &num_jogador, vector<int> &num_sorteados){
     }
     insertionsort(vet_jogador, tam_jogador);
     insertionsort(vet_sorteados, tam_sorteados);
-    /*for(int i=0; i<tam_jogador; i++){
-        cout << vet_jogador[i] << "\t";
-    }
-    cout << "\n\n\n";
-    for(int i=0; i<tam_sorteados; i++){
-        cout << vet_sorteados[i] << "\t";
-    }*/
+    
     int x=0;
     for(int i=0; i<tam_sorteados; i++){
         for(int j=0; j<tam_jogador; j++){
@@ -42,10 +35,7 @@ vector<int> comparar(vector<int> &num_jogador, vector<int> &num_sorteados){
             }
         }
     }
-    /*cout <<"\n\nnumeros iguais: ";
-    for(int i=0; i<x; i++){
-        cout << num_vencidos[i] << "\t";
-    }*/
+
 
     return num_vencidos;
 }
@@ -75,19 +65,20 @@ void Sorteio::GeraAleatorios(int vetor_sorteado[],int quantidade_num,int limite)
         vetor_sorteado[i] = v;
     }
 }
-vector<int> adm(vector<int> &arr){
+vector<int> adm(vector<int> &arr, int i){
     Sorteio var2;
     Sorteio var3;
     Sorteio var4;
     Sorteio var5;
     var2.GeraAleatorios(var4.vetor_sorteado, var3.quantidade_num, var5.limite);
-    
-   // cout <<"\n Números sorteados: ";
+    cout << "\nESSA É A " << i << "º QUE VC ENTRA NA FUNC ADM";
+    //cout <<"\n Números sorteados: ";
     for(int i=0; i<20; i++){
-   //     cout << var4.vetor_sorteado[i] << "\t";
+        //cout << var4.vetor_sorteado[i] << "\t";
         arr.push_back(var4.vetor_sorteado[i]);
     }
-
+    cout <<"\n\n\n";
     return arr;
+    
    
 }

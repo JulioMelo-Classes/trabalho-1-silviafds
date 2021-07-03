@@ -14,7 +14,7 @@ class Sorteio{
 
 };
 
-std::vector<int> adm(std::vector<int> &arr);
+std::vector<int> adm(std::vector<int> &arr, int i);
 std::vector<int> comparar(std::vector<int> &num_sorteados, std::vector<int> &num_jogador);
 
 

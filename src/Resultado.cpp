@@ -127,10 +127,11 @@ void apresentar2(vector<int> &num_sorteados, vector<int> &num_igual, float valor
     size_t tam_sorteados = num_sorteados . size();
     size_t tam_iguais = num_igual . size();
 
-    int vetor_sort[tam_sorteados];
+    int vetor_sort[tam_sorteados], vetor_[20];
     for(int i=0; i<tam_sorteados; i++){
         vetor_sort[i] = num_sorteados[i];
     }
+   
     insertionsort(vetor_sort, tam_sorteados);
 
     cout << "Esta é a rodada #" << cont << " de " << num_jogadas << ", sua aposta é " << valor_aposta << ". Boa sorte!";
