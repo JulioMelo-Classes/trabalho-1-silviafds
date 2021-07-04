@@ -24,41 +24,26 @@ void insertionsort(int num_escolhidos[], int tam){//função de ordenação
 }
 
 
-int val(int num_escolhidos[], int tam){
+int val(int vetor_numeros_apostados[], int cont){
    
-    insertionsort(num_escolhidos, tam);//chamada da funcão de ordenação
+    insertionsort(vetor_numeros_apostados, cont);//chamada da funcão de ordenação
     
-    int ordenar_crescente(int num_escolhidos, int tam);
-    //cout << "\nOrdem crescente ";
-    //for(int i=0; i<tam; i++){//números em ordem crescente
-      /*  cout << num_escolhidos[i] << "\t";
+   /* cout << "\nOrdem crescente ";
+    for(int i=0; i<cont; i++){//números em ordem crescente
+        cout << vetor_numeros_apostados[i] << "\t";
     }*/
 
-
-    for(int i=0; i<tam; i++){//1º validação -- numeros repetidos
-        if(num_escolhidos[i] == num_escolhidos[i+1]){
+    for(int i=0; i<cont; i++){//1º validação -- numeros repetidos
+        if(vetor_numeros_apostados[i] == vetor_numeros_apostados[i+1]){
             cout << "ERRO! SEU ARQUIVO POSSUI NÚMEROS DE APOSTAS IGUAIS, O QUE NÃO É PERMITIDO!" << endl;
-            return 1;            
-            break;
+            return 1;       
         }
     }
 
-    if(tam > 15){ //2º validação -- quantidade de numeros apostados maior que 20.
+    if(cont > 15){ //2º validação -- quantidade de numeros apostados maior que 20.
         cout << "ERRO! VOCÊ SÓ PODE APOSTAR ATÉ 15 NÚMEROS!" << endl;
         return 1;
-        
     }
-
-
-    //Tentando validar com base na tabela ASCII
-
-    for(int i = 0; i < 0; i++){
-        if (num_escolhidos[i] < (char) 48 || num_escolhidos[i] > (char) 57){
-            cout << "ERRO! ARQUIVO COM SIMBOLOS." << endl;
-            return 1;
-        }
-    }
-
 
     /*for(int i=0; i<tam; i++){ //3º validação
         if(num_escolhidos[i] != 6){

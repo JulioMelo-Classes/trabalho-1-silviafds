@@ -7,16 +7,8 @@ class Sorteio{
         int quantidade_num = 20;
         int limite = 80;//do 1 até 80
 
-   
-    bool Existe(int vetor_sorteado[],int quantidade_num, int valor);
-    void GeraAleatorios(int vetor_sorteado[],int quantidade_num,int limite);
-    //void sorteando();
-
 };
 
-std::vector<int> adm(std::vector<int> &arr, int i);
-std::vector<int> comparar(std::vector<int> &num_sorteados, std::vector<int> &num_jogador);
-
-
+std::vector<int> comparar(int vetor_sorteado[], int quantidade_num, int vetor_num_jogados[], int tam_numeros_jogados);
 
 #endif

@@ -3,42 +3,47 @@
 #include <string>
 #include <fstream>
 #include <sstream>
+#include <array>
 #include <vector>
 #include <iomanip>
+#include <cstdlib>
+#include <ctime>
 #include "Validar.h"
 #include "Sorteio.h"
 #include "Resultado.h"
 using namespace std;
 
 int main(int argc, char *argv[]){
-    int v[5], i = 0, x, num_jogadas, j = 0, tam = 0, tam1 = 0;//tam = tamanho do vetor
-    float v_float[17], valor_da_aposta, y, vetor[17];
-    stringstream xx;
-    int recebedora;
-    ifstream arquivo_tst_keno;
+    int numero_de_jogadas, teste_valor_linhas = 0, linha_vazia = 0, recebedora, j = 0, x, cont = 0, tam = 0;
+    int valor_da_aposta;
+    vector<int> numeros_jogador;
+    float valor_bruto_aposta, v_float[17], y;
     string linha;
-    string linha2;
-    int teste_valor_linhas = 0, linha_vazia = 0, cont = 0;
-    vector<int> num_jogador;
+    stringstream xx;
+    ifstream arquivo_tst_keno;
+    srand((unsigned)time(0));
 
-    
-    if(argc < 2){
+    //inicio da leitura e validação do jogo
+    if(argc < 2){//valida se existe arquivo
         recebedora = 1;
         cout << "ERRO! VOCÊ NÃO INSERIU NENHUM ARQUIVO.";
     } else {
-        arquivo_tst_keno.open(argv[1], ios::binary)  ;
-        if(arquivo_tst_keno.is_open()){
+
+        arquivo_tst_keno.open(argv[1]);
+
+        if(arquivo_tst_keno.is_open()){//abre arquivo
             while(getline(arquivo_tst_keno, linha)){
                 //cout << linha << endl;
-                xx << linha << endl;
+                xx << linha << endl;//preenche xx com o conteúdo do arquivo
                 if(linha.empty()){
                     linha_vazia++;
                 }
                 teste_valor_linhas++;
             }
-            if(linha_vazia == teste_valor_linhas){
+            if(linha_vazia == teste_valor_linhas){//valida se arquivo é vazio ou não
                 recebedora = 1;
                 cout<< "ERRO! ARQUIVO VAZIO";
+
             }else{
                 //cout << "\nArquivo com coisas";
                 if(teste_valor_linhas < 3 || teste_valor_linhas > 3){//verifica numero de linhas
@@ -49,73 +54,77 @@ int main(int argc, char *argv[]){
                     while(xx >> y){//aplicando stringstream
                         v_float[j] = y;//guardando no vetor
                         if(j>=2){
-                            vetor[j] = y;
-                            num_jogador.push_back(y);//preenche vector com numeros apostado
+                            //vetor[j] = y;
+                            numeros_jogador.push_back(y);//preenche vector com numeros apostado pelo jogador
                             cont++;
                         }
                         j++;
                         tam++;
                     }
 
-                    valor_da_aposta = v_float[0];
-                   // cout << "\nValor da aposta: " << valor_da_aposta <<  fixed << setprecision(1) << "\n";
+                    valor_da_aposta = v_float[0];///preenche valor bruto da aposta
+                    //cout << "\nValor da aposta: " << valor_da_aposta <<  fixed << setprecision(1) << "\n";
 
-                    num_jogadas = v_float[1];
-                    //cout << "\nNumero de jogadas: " << num_jogadas << "\n";
+                    numero_de_jogadas = v_float[1];//preenche o número total de jogadas
+                    //cout << "\nNumero de jogadas: " << numero_de_jogadas << "\n";
 
-                    tam = tam - 2;
-                    int num_escolhidos[tam], jj = 2;
-                    
+                    int vetor_numeros_apostado[cont];//vetor contém os numeros escolhidos pelo jogador
 
-                    for(int l = 0; l<tam; l++){//preenchendo vetor com números escolhidos
-                        num_escolhidos[l] = v_float[jj];
-                        jj++;
+                    for(int i = 0; i < cont ; i++){//preenche vetor de int com números do jogador
+                        vetor_numeros_apostado[i] = numeros_jogador[i];
                     }
 
-                    recebedora = val(num_escolhidos, tam);//faz a validação
+                    /*for(int i = 0; i < cont ; i++){//apresenta na tela os números jogados pelo jogador
+                        cout << vetor_numeros_apostado[i] << "\t";
+                    }*/
+                    cout << "\n";
+                    //cout << "\nQuanto vale cont " << cont;
+
+                    recebedora = val(vetor_numeros_apostado, cont);//faz a validação
+
                 }    
             }
         } 
-    }   
-
-    vector<int>num_sorteados;//recebe numeros sorteados aleatorio
-    vector<int>arr;//passei na func adm para me retornar vetor de num sorteado
-    vector<int>num_igual;//vetor q guardar os hits
-    cout << "\n\n";
-    int xy = 0;//variavel q receve valor total de crédito do jogador
-    int resto = 0;
+    } 
+    size_t tam_numeros_jogados = numeros_jogador . size();
+    int vetor_num_jogados[tam_numeros_jogados];//vetor de inteiro apenas com os númeos do jogador
+    for(int u = 0; u < tam_numeros_jogados; u++){
+        vetor_num_jogados[u] = numeros_jogador[u];
+    }
+    Sorteio a;
+    Sorteio b;
+    Sorteio c;
+    vector<int> numeros_vencedores;
+    float valor_ganho, valor_total;
+    int vv[20];
+    int resto = 0, xy;
     if(recebedora == 1){
-        //cout << "\nERRO! JOGO INVÁLIDO\n";
+        cout << "\nJogo invalido!\n";
 
     }else{
-        size_t spot = num_jogador . size();
-        apresentar(valor_da_aposta, num_jogadas, argv[1], spot, num_jogador);//fica fora o for
+        size_t spot = numeros_jogador . size();
+        cout << "\nJogo valido!\n";
+        apresentar(valor_da_aposta, numero_de_jogadas, argv[1], spot, vetor_num_jogados);//fica fora o for
+        for(int i = 1; i<=2; i++){    
 
-       // for(int i=1; i<=2; i++){
-
-            for(int i = 1; i <= num_jogadas; i++) {
-                num_sorteados = adm(arr, i);//recebe vetor num sorteado
-                num_igual = comparar(num_jogador, num_sorteados);//recbe vetor hits
-                size_t spot = num_jogador . size();//pego tamanho de vector
-                size_t numero_acertos = num_igual . size();//valor incomum
-
-                float valor_ganho, valor_total;
-                valor_ganho = calculo(valor_da_aposta, num_jogadas, numero_acertos, spot);//valor do premio
-                valor_total = calculo_tot(valor_da_aposta, num_jogadas, valor_ganho, i, resto);//soma credito + premio 
-                resto = valor_total;
-                apresentar2(num_sorteados, num_igual, valor_ganho, valor_total, i, num_jogadas, valor_da_aposta, numero_acertos, spot);
-                num_sorteados.clear();
-                num_igual.clear();
-                arr.clear();
-                xy = valor_total;
+            for(int j = 0; j < c.quantidade_num; j++){//sorteando os números
+                a.vetor_sorteado[j] = 1 + (rand()%b.limite);
+                //cout << a.vetor_sorteado[j] << "\t";
             }
-            //num_sorteados.erase(num_sorteados.begin(), num_sorteados.end());
-            //num_igual.erase(num_igual.begin(), num_igual.end());
-        //}
+            cout << "\n";
 
+            numeros_vencedores = comparar(a.vetor_sorteado, c.quantidade_num, vetor_num_jogados, tam_numeros_jogados);
+            size_t qtd_num_vencidos = numeros_vencedores . size();
+            size_t qtd_num_jogados = numeros_jogador . size();
+            valor_ganho = calculo(valor_da_aposta,  numero_de_jogadas, qtd_num_vencidos, qtd_num_jogados);
+            valor_total = calculo_tot(valor_da_aposta, numero_de_jogadas, valor_ganho, i, resto);//soma credito + premio
+            resto = valor_total;
+            apresentar2(a.vetor_sorteado, numeros_vencedores, valor_ganho, valor_total, i, numero_de_jogadas, valor_da_aposta, qtd_num_vencidos, qtd_num_jogados);
+            xy = valor_total;
+        }
         sumario(valor_da_aposta, xy);
+
     }
 
     return 0;
-    
 }
