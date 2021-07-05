@@ -27,11 +27,6 @@ void insertionsort(int num_escolhidos[], int tam){//função de ordenação
 int val(int vetor_numeros_apostados[], int cont){
    
     insertionsort(vetor_numeros_apostados, cont);//chamada da funcão de ordenação
-    
-   /* cout << "\nOrdem crescente ";
-    for(int i=0; i<cont; i++){//números em ordem crescente
-        cout << vetor_numeros_apostados[i] << "\t";
-    }*/
 
     for(int i=0; i<cont; i++){//1º validação -- numeros repetidos
         if(vetor_numeros_apostados[i] == vetor_numeros_apostados[i+1]){
@@ -45,11 +40,10 @@ int val(int vetor_numeros_apostados[], int cont){
         return 1;
     }
 
-    /*for(int i=0; i<tam; i++){ //3º validação
-        if(num_escolhidos[i] != 6){
+    /*for(int i=0; i<cont; i++){ //3º validação
+        if(vetor_numeros_apostados[i] == '?'){
             cout << "I can't open this file." << endl;
             return 1;
-            break;
         }
     }*/
 

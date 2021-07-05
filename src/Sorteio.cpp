@@ -27,3 +27,13 @@ std::vector<int> comparar(int vetor_sorteado[], int quantidade_num, int vetor_nu
 
     return num_vencidos;
 }
+
+
+bool Sorteio::Existe(int vetor_sorteado[],int quantidade_num, int valor){
+    for(int i = 0;i<valor;i++){
+        if(vetor_sorteado[i]==valor)
+            return true;
+    }
+    return false;
+}
+

@@ -14,10 +14,10 @@
 using namespace std;
 
 int main(int argc, char *argv[]){
-    int numero_de_jogadas, teste_valor_linhas = 0, linha_vazia = 0, recebedora, j = 0, x, cont = 0, tam = 0;
-    float valor_da_aposta;
+    int numero_de_jogadas, teste_valor_linhas = 0, linha_vazia = 0, recebedora, j = 0, x, cont = 0;
+    double valor_da_aposta;
     vector<int> numeros_jogador;
-    float valor_bruto_aposta, v_float[17], y;
+    float v_float[17], y;
     string linha;
     stringstream xx;
     ifstream arquivo_tst_keno;
@@ -33,7 +33,6 @@ int main(int argc, char *argv[]){
 
         if(arquivo_tst_keno.is_open()){//abre arquivo
             while(getline(arquivo_tst_keno, linha)){
-                //cout << linha << endl;
                 xx << linha << endl;//preenche xx com o conteúdo do arquivo
                 if(linha.empty()){
                     linha_vazia++;
@@ -54,31 +53,21 @@ int main(int argc, char *argv[]){
                     while(xx >> y){//aplicando stringstream
                         v_float[j] = y;//guardando no vetor
                         if(j>=2){
-                            //vetor[j] = y;
                             numeros_jogador.push_back(y);//preenche vector com numeros apostado pelo jogador
                             cont++;
                         }
                         j++;
-                        tam++;
                     }
 
                     valor_da_aposta = v_float[0];///preenche valor bruto da aposta
-                    //cout << "\nValor da aposta: " << valor_da_aposta <<  fixed << setprecision(1) << "\n";
 
                     numero_de_jogadas = v_float[1];//preenche o número total de jogadas
-                    //cout << "\nNumero de jogadas: " << numero_de_jogadas << "\n";
 
                     int vetor_numeros_apostado[cont];//vetor contém os numeros escolhidos pelo jogador
 
                     for(int i = 0; i < cont ; i++){//preenche vetor de int com números do jogador
                         vetor_numeros_apostado[i] = numeros_jogador[i];
                     }
-
-                    /*for(int i = 0; i < cont ; i++){//apresenta na tela os números jogados pelo jogador
-                        cout << vetor_numeros_apostado[i] << "\t";
-                    }*/
-                    cout << "\n";
-                    //cout << "\nQuanto vale cont " << cont;
 
                     recebedora = val(vetor_numeros_apostado, cont);//faz a validação
 
@@ -94,10 +83,12 @@ int main(int argc, char *argv[]){
     Sorteio a;
     Sorteio b;
     Sorteio c;
-    vector<int> numeros_vencedores;
+    Sorteio d;
+    vector<int> numeros_vencedores;//numeros do jogador que são iguais aos sorteados
+
     float valor_ganho, valor_total;
     int vv[20];
-    int resto = 0, xy;
+    int resto = 0, xy, v;
     if(recebedora == 1){
         cout << "\nJogo invalido!\n";
 
@@ -105,11 +96,15 @@ int main(int argc, char *argv[]){
         size_t spot = numeros_jogador . size();
         cout << "\nJogo valido!\n";
         apresentar(valor_da_aposta, numero_de_jogadas, argv[1], spot, vetor_num_jogados);//fica fora o for
-        for(int i = 1; i<=2; i++){    
+
+        for(int i = 1; i<=numero_de_jogadas; i++){    
 
             for(int j = 0; j < c.quantidade_num; j++){//sorteando os números
-                a.vetor_sorteado[j] = 1 + (rand()%b.limite);
-                //cout << a.vetor_sorteado[j] << "\t";
+                v = 1 + (rand() % b.limite);
+                while(d.Existe(a.vetor_sorteado, j, v)){
+                    v = 1 + (rand() % b.limite);
+                }
+                a.vetor_sorteado[j] = v;
             }
             cout << "\n";
 

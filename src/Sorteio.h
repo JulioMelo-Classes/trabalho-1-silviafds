@@ -5,7 +5,10 @@ class Sorteio{
     public:
         int vetor_sorteado[20];//valores que foram sorteados.
         int quantidade_num = 20;
-        int limite = 80;//do 1 até 80
+        int limite = 80;//até 80
+
+    bool Existe(int vetor_sorteado[],int quantidade_num, int valor);
+    
 
 };
 
