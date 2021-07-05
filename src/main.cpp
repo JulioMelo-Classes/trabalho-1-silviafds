@@ -15,7 +15,7 @@ using namespace std;
 
 int main(int argc, char *argv[]){
     int numero_de_jogadas, teste_valor_linhas = 0, linha_vazia = 0, recebedora, j = 0, x, cont = 0, tam = 0;
-    int valor_da_aposta;
+    float valor_da_aposta;
     vector<int> numeros_jogador;
     float valor_bruto_aposta, v_float[17], y;
     string linha;
