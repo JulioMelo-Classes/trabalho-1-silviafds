@@ -8,7 +8,15 @@
 #include "Validar.h"
 using namespace std;
 
-void insertionsort(int num_escolhidos[], int tam){//função de ordenação
+/*! 
+ * @brief Função para ordenar o vetor de números apostados pelo jogador. 
+ *
+ * @param num_escolhidos vetor de números apostados pelo jogador.
+ * @param tam tamanho do vetor.
+ *
+ */
+
+void insertionsort(int num_escolhidos[], int tam){
     int i, key, j;
 
     for(i=1; i<tam; i++){
@@ -23,19 +31,29 @@ void insertionsort(int num_escolhidos[], int tam){//função de ordenação
     }
 }
 
+/*! 
+ * @brief Função que irá validar o arquivo do jogador.
+ * 
+ * @param vetor_numeros_apostados vetor que recebe os valores apostados pelo jogador.
+ * @param cont quantidade de números apostados.
+ *
+ * @return 1 caso o arquivo tenha números repetidos ou a quantidade de valores apostados for superior a 15 e retorna 0 ao terminar a função normalmente.
+ *
+ */
+
 
 int val(int vetor_numeros_apostados[], int cont){
    
-    insertionsort(vetor_numeros_apostados, cont);//chamada da funcão de ordenação
+    insertionsort(vetor_numeros_apostados, cont);
 
-    for(int i=0; i<cont; i++){//1º validação -- numeros repetidos
+    for(int i=0; i<cont; i++){
         if(vetor_numeros_apostados[i] == vetor_numeros_apostados[i+1]){
             cout << "ERRO! SEU ARQUIVO POSSUI NÚMEROS DE APOSTAS IGUAIS, O QUE NÃO É PERMITIDO!" << endl;
             return 1;       
         }
     }
 
-    if(cont > 15){ //2º validação -- quantidade de numeros apostados maior que 20.
+    if(cont > 15){ 
         cout << "ERRO! VOCÊ SÓ PODE APOSTAR ATÉ 15 NÚMEROS!" << endl;
         return 1;
     }
