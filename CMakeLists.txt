@@ -18,7 +18,7 @@ include_directories( include )
 add_executable( run_program
                 src/Resultado.cpp
                 src/Sorteio.cpp
-                Validar.cpp
+                src/Validar.cpp
                 src/main.cpp )
 
 # The end
