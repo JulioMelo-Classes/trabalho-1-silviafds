@@ -141,7 +141,7 @@ void apresentar(int valor_da_aposta, int  numero_de_jogadas, char *arquivo, int 
     cout << ">>> Aposta lida com sucesso!";
     cout << "\n    Você apostará um total de $" << valor_da_aposta << " créditos.";
     cout << "\n    Jogará um total de " <<  numero_de_jogadas  << " rodadas, apostando $" << aposta_por_jogada << " créditos por rodada.";
-
+    insertionsort(vetor_num_jogados, spot);
     cout << "\n    Sua aposta tem " << spot << " números, eles são: [ ";
     for (int i = 0; i < spot; i++) {
         cout << vetor_num_jogados[i] << " - ";
