@@ -1,3 +1,0 @@
-C:/Users/brend/Documents/UFRN/BTI/2021.1/LP1/Unidade1/trabalho-1-silviafds/build/CMakeFiles/run_program.dir
-C:/Users/brend/Documents/UFRN/BTI/2021.1/LP1/Unidade1/trabalho-1-silviafds/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/brend/Documents/UFRN/BTI/2021.1/LP1/Unidade1/trabalho-1-silviafds/build/CMakeFiles/ZERO_CHECK.dir

@@ -13,6 +13,26 @@
 #include "Resultado.h"
 using namespace std;
 
+/*
+Avaliação
+Processamento do Arquivo de Entrada: 0,6 (faltou o erro do arquivo inexistente, presença de carateres, formatação diferente)
+Execução correta: 0.8 (no sorteio não podem haver numeros repetidos)
+Interfcace Textual: 1
+Documentação: 1
+Compilação automatizada: 1
+Organização em src, include, build, data: 0,8 (faltou o uso do "data" para guardar os arquivos de teste)
+
+Observações:
+- Gostei que vocês tentaram usar mais classes, porém vocês ainda não entenderam a real utilidade de guardar atributos nas classes.
+Um exemplo claro é a classe Sorteio. Uma forma melhor de organziar o código seria se ela tivesse um método "realizar_sorteio" que fizesse
+o processamento que está sendo feito na parte "realiza sorteio dos números".
+- Em muitos pontos vcs optaram por usar vetores de int[], lembrem do que eu falei, em c++ a gente usa std::vector ou std::array em tudo
+que der. Usando vector vcs poderiam usar a função std::find para descobrir se um elemento está no vetor, sem precisar daquele método "Existe"
+da classes sorteio.
+- Adicionei um arquivo "teste_arquivo.dat" e também removi o srand(time(null)) do main para que vcs possam ver que aparecem números repetidos
+no sorteio, apenas executem o programa com aquele arquivo.
+*/
+
 
 /*! 
  * @brief Função principal do programa.
@@ -32,7 +52,7 @@ int main(int argc, char *argv[]){
     string linha;
     stringstream xx;
     ifstream arquivo_tst_keno;
-    srand((unsigned)time(0));
+    //srand((unsigned)time(0));
 
     // verifica se o arquivo foi passado como argumento ao chamar o programa, caso nenhum arquivo tenha sido passado, uma mensagem será exibida ao jogador.
     if(argc < 2){
